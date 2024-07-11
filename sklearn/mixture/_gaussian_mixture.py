@@ -253,7 +253,7 @@ def _estimate_gaussian_covariances_spherical(resp, X, nk, means, reg_covar):
     variances : array, shape (n_components,)
         The variance values of each components.
     """
-    return _estimate_gaussian_covariances_diag(resp, X, nk, means, reg_covar).mean(1)
+    return np.ones(nk)*_estimate_gaussian_covariances_diag(resp, X, nk, means, reg_covar).mean(1).mean()
 
 
 def _estimate_gaussian_parameters(X, resp, reg_covar, covariance_type):
